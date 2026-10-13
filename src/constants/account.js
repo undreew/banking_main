@@ -1,0 +1,13 @@
+const ACCOUNT_STATUS = {
+    "ACTIVE": "ACTIVE",
+    "FROZEN": 'FROZEN',
+    "CLOSED": 'CLOSED'
+}
+
+const ACCOUNT_LABEL = {
+    [ACCOUNT_STATUS.ACTIVE]: 'Active',
+    [ACCOUNT_STATUS.FROZEN]: 'Frozen',
+    [ACCOUNT_STATUS.CLOSED]: 'Closed'
+}
+
+export { ACCOUNT_STATUS, ACCOUNT_LABEL };

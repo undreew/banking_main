@@ -11,6 +11,8 @@ const nextConfig = {
       },
     },
   },
+  // indicator on the bottom left
+  devIndicators: false
 };
 
 export default nextConfig;
