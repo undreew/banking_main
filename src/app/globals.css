@@ -7,8 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-ibm-sans);
+  --font-mono: var(--font-ibm-mono);
   --font-heading: var(--font-heading);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -46,6 +46,20 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* ACCOUNT STATUS COLORS */
+  --color-valid-bg: var(--active-bg);
+  --color-valid-fg: var(--active-fg);
+  --color-frozen-bg: var(--frozen-bg);
+  --color-frozen-fg: var(--frozen-fg);
+
+  /* ALERT STATUS COLORS */
+  --color-pending-bg: var(--pending-bg);
+  --color-pending-fg: var(--pending-fg);
+  --color-info-bg: var(--info-bg);
+  --color-info-fg: var(--info-fg);
+  --color-danger-bg: var(--danger-bg);
+  --color-danger-fg: var(--danger-fg);
 }
 
 :root {
@@ -53,11 +67,11 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.488 0.243 264.376);
+  --primary: var(--accent-light-bnk);
   --primary-foreground: oklch(0.97 0.014 254.604);
   --secondary: oklch(0.967 0.001 286.375);
   --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.97 0 0);
+  --muted: var(--muted-light-bnk);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
@@ -70,31 +84,66 @@
   --chart-3: oklch(0.546 0.245 262.881);
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.424 0.199 265.638);
-  --radius: 0.625rem;
+  --radius: 1rem;
   --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-foreground: var(--muted-secondary-light-bnk);
   --sidebar-primary: oklch(0.546 0.245 262.881);
   --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-accent: var(--accent-background-light-bnk);
+  --sidebar-accent-foreground: var(--accent-light-bnk);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --background: oklch(1 0 0);
+  --background: var(--page-light-bnk);
   --foreground: oklch(0.145 0 0);
+
+  /* ACCOUNT STATUSES */
+  --active-bg: var(--active-status-background-light-bnk);
+  --active-fg: var(--money-in-light-bnk);
+  --frozen-bg: var(--frozen-status-background-light-bnk);
+  --frozen-fg: var(--frozen-light-bnk);
+
+  /* ALERT STATUS */
+  --pending-bg: var(--pending-background-light-bnk);
+  --pending-fg: var(--pending-light-bnk);
+  --info-bg: var(--info-background-light-bnk);
+  --info-fg: var(--accent-light-bnk);
+  --danger-bg: var(--danger-background-light-bnk);
+  --danger-fg: var(--error-light-bnk);
+
+  /* Banking Light Colours */
+  --page-light-bnk: oklch(95.4% 0.009 258.3);
+  --surface-light-bnk: oklch(100% 0 0);
+  --ink-light-bnk: oklch(20% 0.035 261.4);
+  --accent-light-bnk: oklch(49.2% 0.244 266.5); /* acts as the primary */
+  --balance-card-light-bnk: oklch(23.7% 0.083 267.8);
+  --money-in-light-bnk: oklch(51.1% 0.12 155.3);
+  --error-light-bnk: oklch(50% 0.182 29.5);
+  --frozen-light-bnk: oklch(48.9% 0.091 226.6);
+  --pending-light-bnk: oklch(50.5% 0.112 65.9);
+  --muted-light-bnk: oklch(49.7% 0.039 260.9);
+
+  --accent-background-light-bnk: oklch(94% 0.029 275.2); /* used in SidebarMenuItem hover background */
+  --muted-secondary-light-bnk: oklch(41.5% 0.044 262.5); /* used in SidebarMenuItem default color */
+  --callout-background-light-bnk: oklch(97% 0.006 264.5);  /* used in callout component */
+  --active-status-background-light-bnk: oklch(94.4% 0.03 161.1);
+  --frozen-status-background-light-bnk: oklch(94.2% 0.024 219.7);
+  --pending-background-light-bnk: oklch(96% 0.041 83.9);
+  --info-background-light-bnk: oklch(94% 0.029 275.2);
+  --danger-background-light-bnk: oklch(94.5% 0.024 26.9);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: var(--page-dark-bnk);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.424 0.199 265.638);
+  --primary: var(--accent-dark-bnk);
   --primary-foreground: oklch(0.97 0.014 254.604);
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
+  --muted: var(--muted-dark-bnk);
   --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
@@ -107,14 +156,49 @@
   --chart-3: oklch(0.546 0.245 262.881);
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.424 0.199 265.638);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar: var(--surface-dark-bnk);
+  --sidebar-foreground: var(--muted-dark-bnk);
   --sidebar-primary: oklch(0.623 0.214 259.815);
   --sidebar-primary-foreground: oklch(0.97 0.014 254.604);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent: var(--accent-background-dark-bnk);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* STATUSES */
+  --active-bg: var(--active-status-background-dark-bnk);
+  --active-fg: var(--money-in-dark-bnk);
+  --frozen-bg: var(--frozen-status-background-dark-bnk);
+  --frozen-fg: var(--frozen-dark-bnk);
+
+  /* ALERT STATUS */
+  --pending-bg: var(--pending-background-dark-bnk);
+  --pending-fg: var(--pending-dark-bnk);
+  --info-bg: var(--info-background-dark-bnk);
+  --info-fg: var(--accent-dark-bnk);
+  --danger-bg: var(--danger-background-dark-bnk);
+  --danger-fg: var(--error-dark-bnk);
+
+  /* Banking Dark Colours */
+  --page-dark-bnk: oklch(16.1% 0.027 265.8);
+  --surface-dark-bnk: oklch(21.9% 0.038 263.3);
+  --ink-dark-bnk: oklch(94.9% 0.017 267.8);
+  --accent-dark-bnk: oklch(73% 0.14 273);
+  --balance-card-dark-bnk: oklch(37.5% 0.14 268);
+  --money-in-dark-bnk: oklch(78% 0.146 162.4);
+  --error-dark-bnk: oklch(76.3% 0.141 29.1);
+  --frozen-dark-bnk: oklch(78.6% 0.105 220.3);
+  --pending-dark-bnk: oklch(81.5% 0.138 77.4);
+  --muted-dark-bnk: oklch(68.4% 0.04 262.1);
+
+  --accent-background-dark-bnk: oklch(27.2% 0.068 269.8); /* used in SidebarMenuItem hover background */
+  --muted-secondary-dark-bnk: oklch(72.6% 0.139 273); /* used in SidebarMenuItem default color */
+  --callout-background-dark-bnk: oklch(25.6% 0.048 266);
+  --active-status-background-dark-bnk: oklch(27.9% 0.04 173.9);
+  --frozen-status-background-dark-bnk: oklch(28% 0.041 225.3);
+  --pending-background-dark-bnk: oklch(29.5% 0.045 81);
+  --info-background-dark-bnk: var(--balance-card-dark-bnk);
+  --danger-background-dark-bnk: oklch(26.6% 0.049 24.8);
 }
 
 @layer base {
@@ -127,4 +211,20 @@
   html {
     @apply font-sans;
   }
+}
+
+.callout {
+  @apply bg-(--callout-background-light-bnk) dark:bg-(--callout-background-dark-bnk);
+}
+
+.callout-title {
+  @apply text-(--ink-light-bnk) dark:text-(--ink-dark-bnk);
+}
+
+.text-accent {
+  @apply text-(--accent-light-bnk) dark:text-(--accent-dark-bnk);
+}
+
+.card {
+  @apply bg-white dark:bg-(--surface-dark-bnk);
 }
