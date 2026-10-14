@@ -60,6 +60,12 @@
   --color-info-fg: var(--info-fg);
   --color-danger-bg: var(--danger-bg);
   --color-danger-fg: var(--danger-fg);
+
+  /* BUTTON COLORS */
+  --color-btn-danger-bg: var(--btn-danger-bg);
+
+  /* CARD COLORS */
+  --color-card-bg: var(--card-bg);
 }
 
 :root {
@@ -109,6 +115,13 @@
   --info-fg: var(--accent-light-bnk);
   --danger-bg: var(--danger-background-light-bnk);
   --danger-fg: var(--error-light-bnk);
+
+  /* BUTTON STATUSES */
+  --btn-danger-bg: var(--error-light-bnk);
+  --btn-danger-fg: var(--accent-background-light-bnk);
+
+  /* CARD COLORS */
+  --card-bg: var(--balance-card-light-bnk);
 
   /* Banking Light Colours */
   --page-light-bnk: oklch(95.4% 0.009 258.3);
@@ -179,6 +192,13 @@
   --danger-bg: var(--danger-background-dark-bnk);
   --danger-fg: var(--error-dark-bnk);
 
+  /* BUTTON STATUSES */
+  --btn-danger-bg: var(--error-dark-bnk);
+  --btn-danger-fg: var(--ink-dark-bnk);
+
+  /* CARD COLORS */
+  --card-bg: var(--balance-card-dark-bnk);
+
   /* Banking Dark Colours */
   --page-dark-bnk: oklch(16.1% 0.027 265.8);
   --surface-dark-bnk: oklch(21.9% 0.038 263.3);
@@ -226,5 +246,54 @@
 }
 
 .card {
-  @apply bg-white dark:bg-(--surface-dark-bnk);
+  @apply dark:bg-(--surface-dark-bnk);
+}
+
+.badge {
+  @apply font-sans font-bold text-[0.825rem] p-3;
+}
+
+/* TYPOGRAPHY */
+.display5 {
+  @apply font-heading font-[650] text-5xl leading-[1.05];
+}
+
+.display4 {
+  @apply font-heading font-[650] text-4xl leading-[1.05];
+}
+
+.pageTitle {
+  @apply font-heading font-bold text-4xl leading-[1.1];
+}
+
+.cardTitle {
+  @apply font-heading font-bold text-3xl leading-[1.15];
+}
+
+.section {
+  @apply font-heading font-[650] text-xl leading-[1.2];
+}
+
+.body {
+  @apply font-sans font-normal text-base leading-[1.5];
+}
+
+.bodyMedium {
+  @apply font-sans font-medium text-sm leading-[1.4];
+}
+
+.button {
+  @apply font-sans font-semibold text-sm leading-[1];
+}
+
+.caption {
+  @apply font-sans font-normal text-xs leading-[1.4];
+}
+
+.label {
+  @apply font-sans font-semibold text-xs uppercase tracking-[0.08em] leading-normal;
+}
+
+.mono {
+  @apply font-mono font-medium text-sm leading-[1.4];
 }

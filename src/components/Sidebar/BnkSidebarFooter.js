@@ -9,10 +9,10 @@ const BnkSidebarFooter = () => {
     return (
         <SidebarFooter className={'pb-5 px-5'}>
             <BnkCalloutWithAction
+                alt={'JR'}
                 title={'Jamie Reyes'}
-                avatarFallback={'JR'}
                 description={'ROLE_USER'}
-                actionProps={{onClick: () => console.log("Logging out..."), icon: <LogOut />}}
+                actionProps={{onClick: () => console.log("Logging out..."), Icon: LogOut}}
             />
         </SidebarFooter>
     );

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { PlusIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BnkButton from "@/components/Button/BnkButton";
 
 const BnkSidebarGroupAction = () => {
 
@@ -11,10 +12,9 @@ const BnkSidebarGroupAction = () => {
 
     return (
         <div className="mb-3">
-            <Button size="lg" className="w-full cursor-pointer dark:text-black" onClick={handleTransaction}>
-                <PlusIcon data-icon="inline-start"/>
-                <span>Move money</span>
-            </Button>
+            <BnkButton size="lg" className="w-full" IconLeft={PlusIcon} onClick={handleTransaction}>
+                Move money
+            </BnkButton>
         </div>
     );
 };
