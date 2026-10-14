@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Badge } from "@/components/ui/badge";
+import BnkBadge from "@/components/Badge/BnkBadge";
 import { LockIcon, Snowflake } from "lucide-react";
 import { ACCOUNT_LABEL, ACCOUNT_STATUS } from "@/constants/account"
 
@@ -12,10 +12,10 @@ const STATUS_ICONS = {
 const BnkAccountStatusBadge = (props) => {
     const { status } = props
     return (
-        <Badge variant={status} className="font-sans font-bold text-[0.825rem] p-3">
+        <BnkBadge variant={status}>
             {STATUS_ICONS[status]}
             {ACCOUNT_LABEL[status]}
-        </Badge>
+        </BnkBadge>
     );
 };
 

@@ -1,0 +1,13 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bnk-logo-grad" x1="2" y1="2" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2446E8"/>
+      <stop offset="1" stop-color="#0E1A45"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="38" height="38" rx="11" fill="url(#bnk-logo-grad)"/>
+  <circle cx="20" cy="20" r="14.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="1"/>
+  <circle cx="20" cy="20" r="9.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="20" y="27" text-anchor="middle" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="19" fill="#FFFFFF">B</text>
+  <circle cx="30.5" cy="9.5" r="1.6" fill="#8BA0FF"/>
+</svg>

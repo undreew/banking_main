@@ -17,6 +17,12 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
+        /* BNK BUTTONS */
+        bnkDefault: "cursor-pointer bg-primary text-white dark:text-black hover:bg-primary/80 dark:hover:bg-primary/80",
+        bnkOutline: "cursor-pointer border-border text-black dark:text-white hover:bg-primary/20",
+        bnkGhost: "cursor-pointer text-primary hover:bg-primary/5 dark:hover:bg-primary/10",
+        bnkDanger: "cursor-pointer bg-btn-danger-bg text-white dark:text-black dark:bg-btn-danger-bg dark:text-black hover:bg-btn-danger-bg/80 dark:hover:bg-btn-danger-bg/80",
+        bnkDisabled: "cursor-not-allowed bg-primary/30 text-white dark:text-muted"
       },
       size: {
         default:

@@ -2,24 +2,20 @@
 import React from 'react';
 
 import { cn } from "cn"
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@/components/ui/item";
 
 import BnkCallout from "@/components/Callout/BnkCallout"
+import BnkButton from "@/components/Button/BnkButton";
+import BnkAvatar from "@/components/Avatar/BnkAvatar";
 
 const BnkCalloutWithAction = (props) => {
-    const { src = "", title, description, avatarFallback, actionProps = {}, className } = props;
-    const { text = "", icon = null, variant = "icon" } = actionProps;
+    const { alt = "", src = "", title, description, actionProps = {}, className } = props;
+    const { text = "", Icon = "", variant = "icon" } = actionProps;
 
     return (
         <BnkCallout className={cn(className)}>
             <ItemMedia variant="icon">
-                <Avatar>
-                    <AvatarImage src={src}/>
-                    <AvatarFallback
-                        className="bg-sidebar-accent text-accent font-bold">{avatarFallback}</AvatarFallback>
-                </Avatar>
+                <BnkAvatar src={src} alt={alt}/>
             </ItemMedia>
 
             <ItemContent>
@@ -28,11 +24,9 @@ const BnkCalloutWithAction = (props) => {
             </ItemContent>
 
             <ItemActions>
-                <Button className={'cursor-pointer text-accent font-semibold'} variant={variant}
-                        onClick={actionProps.onClick}>
-                    {icon}
+                <BnkButton LeftIcon={Icon} variant={variant} className="cursor-pointer text-accent font-semibold" onClick={props.onClick}>
                     {text}
-                </Button>
+                </BnkButton>
             </ItemActions>
         </BnkCallout>
     );

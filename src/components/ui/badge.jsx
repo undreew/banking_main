@@ -24,6 +24,19 @@ const badgeVariants = cva(
         CLOSED: "border-border text-muted [a]:hover:bg-muted [a]:hover:text-muted-foreground",
         FROZEN: "bg-frozen-bg text-frozen-fg",
 
+        /* TRANSACTION STATUSES */
+        COMPLETED: "bg-valid-bg text-valid-fg",
+        FAILED: "bg-danger-bg text-danger-fg",
+        PENDING: "bg-pending-bg text-pending-fg",
+        REVERSED: "bg-pending-bg/80 text-pending-fg",
+
+        /* USER STATUSES */
+        ENABLED: "bg-valid-bg text-valid-fg",
+        DISABLED: "border-border text-muted [a]:hover:bg-muted [a]:hover:text-muted-foreground",
+
+        /* USER ROLE */
+        USER: "bg-muted/20 text-muted-foreground uppercase",
+        ADMIN: "bg-info-bg text-info-fg",
       },
     },
     defaultVariants: {
