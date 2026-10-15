@@ -4,9 +4,9 @@ import { cn } from "cn";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const BnkAlert = (props) => {
-    const { icon, title, variant, description } = props
+    const { icon, title, variant, className, description } = props
     return (
-        <Alert variant={variant} className="outline-0 border-0">
+        <Alert variant={variant} className={cn("outline-0 border-0", className)}>
             {icon}
 
             <AlertTitle className="font-bold font-sans">{title}</AlertTitle>

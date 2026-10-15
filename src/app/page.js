@@ -1,15 +1,8 @@
-import React from 'react';
-
-import BnkSidebar from "@/components/Sidebar/BnkSidebar";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { redirect } from "next/navigation";
 
 
 const Page = () => {
-    return (
-        <SidebarProvider>
-            <BnkSidebar />
-        </SidebarProvider>
-    );
+    return redirect("/login");
 };
 
 export default Page;
