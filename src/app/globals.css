@@ -66,6 +66,8 @@
 
   /* CARD COLORS */
   --color-card-bg: var(--card-bg);
+
+  --color-white: #fff;
 }
 
 :root {

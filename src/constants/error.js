@@ -1,0 +1,34 @@
+const ERRORS = {
+    CONFLICT: "CONFLICT",
+    NOT_FOUND: "NOT_FOUND",
+    UNAUTHORIZED: "UNAUTHORIZED",
+    INTERNAL_SERVER_ERROR: "INTERNAL_SERVER_ERROR",
+    RATE_LIMIT_ERROR: "RATE_LIMIT_ERROR",
+    UNAUTHENTICATED: "UNAUTHENTICATED",
+    MALFORMED_REQUEST: "MALFORMED_REQUEST",
+    VALIDATION_FAILED: "VALIDATION_FAILED"
+};
+
+const SLUGS = {
+    [ERRORS.CONFLICT]: "conflict",
+    [ERRORS.NOT_FOUND]: "not-found",
+    [ERRORS.UNAUTHORIZED]: "unauthorized",
+    [ERRORS.INTERNAL_SERVER_ERROR]: "internal",
+    [ERRORS.RATE_LIMIT_ERROR]: "rate-limited",
+    [ERRORS.UNAUTHENTICATED]: "unauthenticated",
+    [ERRORS.MALFORMED_REQUEST]: "malformed-request",
+    [ERRORS.VALIDATION_FAILED]: "validation-failed"
+}
+
+const ERROR_SLUGS = {
+    [SLUGS.CONFLICT]: "conflict",
+    [SLUGS.NOT_FOUND]: "not-found",
+    [SLUGS.UNAUTHORIZED]: "unauthorized",
+    [SLUGS.INTERNAL_SERVER_ERROR]: "internal",
+    [SLUGS.RATE_LIMIT_ERROR]: "rate-limited",
+    [SLUGS.UNAUTHENTICATED]: "unauthenticated",
+    [SLUGS.MALFORMED_REQUEST]: "malformed-request",
+    [SLUGS.VALIDATION_FAILED]: "validation-failed"
+};
+
+export { ERRORS, ERROR_SLUGS };

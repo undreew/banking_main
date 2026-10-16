@@ -24,7 +24,7 @@ const BnkCalloutWithAction = (props) => {
             </ItemContent>
 
             <ItemActions>
-                <BnkButton LeftIcon={Icon} variant={variant} className="cursor-pointer text-accent font-semibold" onClick={props.onClick}>
+                <BnkButton LeftIcon={Icon} variant={variant} className="cursor-pointer text-accent font-semibold p-0" onClick={props.onClick}>
                     {text}
                 </BnkButton>
             </ItemActions>
