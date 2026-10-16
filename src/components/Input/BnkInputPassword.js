@@ -14,7 +14,7 @@ const BnkInputPassword = (props) => {
     return (
         <BnkInput
             {...rest}
-            type={type}
+            type={isOpen ? "text" : "password"}
             Addon={(
                 <InputGroupAddon align="inline-end">
                     <InputGroupButton className="hover:bg-muted/10 cursor-pointer" onClick={handleOpen}>

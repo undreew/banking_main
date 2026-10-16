@@ -1,17 +1,20 @@
+'use client'
+
 import React from 'react';
 
-import { join } from "lodash";
+import { castArray, join } from "lodash";
 import { InputGroup, InputGroupInput } from "@/components/ui/input-group";
-import { Field, FieldDescription, FieldLabel } from "@/components/ui/field";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/components/ui/field";
 
 const BnkInput = (props) => {
-    const { name, type = "text", label, placeholder, description, isRequired, isDisabled, Addon} = props;
+    const { name, type = "text", label, placeholder, description, Addon } = props;
+    const { errors, isInvalid, isRequired, isDisabled, field } = props
 
     const id = join(["id", name, type], "-");
 
     return (
-        <Field data-disabled={isDisabled}>
-            <FieldLabel htmlFor="name" className="text-muted">
+        <Field data-disabled={isDisabled} data-invalid={isInvalid}>
+            <FieldLabel htmlFor={name}>
                 {label}
                 {isRequired && <span className="text-destructive">*</span>}
             </FieldLabel>
@@ -21,16 +24,17 @@ const BnkInput = (props) => {
             >
                 <InputGroupInput
                     id={id}
+                    {...field}
                     type={type}
-                    required={isRequired}
                     disabled={isDisabled}
+                    aria-invalid={isInvalid}
                     placeholder={placeholder}
-                    aria-invalid={false}
-
+                    autoComplete="off"
                 />
                 {Addon}
             </InputGroup>
-            <FieldDescription>{description}</FieldDescription>
+            {errors && <FieldError errors={castArray(errors)}/>}
+            {description && <FieldDescription>{description}</FieldDescription>}
         </Field>
     );
 };

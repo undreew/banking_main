@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import AuthCTA from "@/modules/auth/AuthCTA";
 import BnkLogo from "@/components/Logo/BnkLogo";
-import { APP_API_VERSION } from "@/constants/config";
+import { APP_API_VERSION } from "@/config/AppConfig";
 
 const AuthLeftPanel = () => {
     return (

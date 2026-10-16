@@ -1,35 +1,66 @@
+'use client'
+
 import Link from "next/link";
 import React, { Fragment } from 'react';
+import { Controller } from "react-hook-form";
 
-import { Info } from "lucide-react";
-import BnkAlert from "@/components/Alert/BnkAlert";
-import BnkInput from "@/components/Input/BnkInput";
 import { FieldGroup } from "@/components/ui/field";
+import BnkInput from "@/components/Input/BnkInput";
 import BnkButton from "@/components/Button/BnkButton";
+import AuthErrorAlert from "@/modules/auth/AuthErrorAlert";
 import BnkInputPassword from "@/components/Input/BnkInputPassword";
 
-const LoginForm = () => {
+
+const LoginForm = (props) => {
+    const { form, onSubmit, isLoading, isError, error } = props;
+
+    const handleSubmit = (data) => onSubmit(data);
+
     return (
         <Fragment>
-            <form action="">
+            <form id="login-form" onSubmit={form.handleSubmit(handleSubmit)} aria-disabled={isLoading}>
                 <FieldGroup className="gap-3">
-                    <BnkInput
+                    <Controller
                         name="email"
-                        label="Email"
-                        placeholder="your_email@example.com"
+                        control={form.control}
+                        render={({ field, fieldState }) => {
+                            return (
+                                <BnkInput
+                                    field={field}
+                                    errors={fieldState.error}
+                                    isInvalid={fieldState.invalid}
+                                    placeholder="your_email@example.com"
+                                    label="Email"
+                                    isDisabled={isLoading}
+                                />
+                            )
+                        }}
                     />
 
-                    <BnkInputPassword
+                    <Controller
                         name="password"
-                        label="Password"
-                        placeholder="*********"
+                        control={form.control}
+                        render={({ field, fieldState }) => {
+                            return (
+                                <BnkInputPassword
+                                    field={field}
+                                    errors={fieldState.error}
+                                    isInvalid={fieldState.invalid}
+                                    placeholder="********"
+                                    label="Password"
+                                    isDisabled={isLoading}
+                                />
+                            )
+                        }}
                     />
                 </FieldGroup>
-
-                <BnkAlert icon={<Info />} className="mt-5" variant="danger" title="Invalid email or password." description="Check both and try again." />
-
-                <BnkButton className="w-full py-6 px-4 mt-5" size="lg">Sign in</BnkButton>
             </form>
+
+            <AuthErrorAlert isError={isError} error={error} />
+
+            <BnkButton isDisabled={isLoading} className="w-full mt-5" type="submit" form="login-form">
+                Sign in
+            </BnkButton>
 
             <p className="bodyMedium text-muted text-center mt-5">
                 New here?
