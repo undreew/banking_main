@@ -1,5 +1,6 @@
 import "./globals.css";
-import { heading, ibmSans, ibmMono } from '@/styles/fonts';
+import QueryProvider from "@/providers/QueryProvider";
+import { heading, ibmMono, ibmSans } from '@/styles/fonts';
 
 export const metadata = {
     title: "Banking",
@@ -12,7 +13,11 @@ export default function RootLayout({ children }) {
             lang="en"
             className={`${heading.variable} ${ibmSans.variable} ${ibmMono.variable} h-full antialiased`}
         >
-        <body className="min-h-full flex flex-col">{children}</body>
+        <body className="min-h-full flex flex-col">
+        <QueryProvider>
+            {children}
+        </QueryProvider>
+        </body>
         </html>
     );
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 
+import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { APP_API_VERSION_TEXT, APP_NAME } from "@/constants/config";
-import Link from "next/link";
+import { APP_API_VERSION_TEXT, APP_NAME } from "@/config/AppConfig";
 
 const BnkLogo = ({ as = "link" }) => {
 
