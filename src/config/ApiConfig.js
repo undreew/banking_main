@@ -3,6 +3,7 @@ const ApiConfig = {
         // auth
         login: `/auth/login`,
         logout: `/auth/logout`,
+        currentUser: `/auth/me`,
         refresh: `/auth/refresh`,
         register: `/auth/register`
 

@@ -1,4 +1,4 @@
-import { Bricolage_Grotesque, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Bricolage_Grotesque, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 
 export const heading = Bricolage_Grotesque({
     variable: "--font-heading",
