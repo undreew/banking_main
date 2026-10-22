@@ -7,39 +7,42 @@ import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from "@ta
 
 
 const QueryProvider = ({ children }) => {
-    const router = useRouter();
+  const router = useRouter();
 
-    const [client] = useState(new QueryClient({
-        defaultOptions: {
-            queries: {
-                status: 60 * 1000,
-            }
-        },
-        mutationCache: new MutationCache({
-            onError: (error) => {
-                const errorResponse = error?.errorReponse;
+  const [client] = useState(new QueryClient({
+    defaultOptions: {
+      queries: {
+        status: 60 * 1000
+      }
+    },
+    mutationCache: new MutationCache({
+      onError: (error) => {
+        const errorResponse = error?.errorReponse;
 
-                if (errorResponse && typeof errorResponse === "object") {
-                    const { /*detail,*/ code, /*fieldErrors,*/ status, redirect} = errorResponse;
-                    if (status === 429 && code === ERROR_SLUGS[code] && redirect) {
-                        router.push("/429");
-                    }
-                }
-            }
-        }),
-        queryCache: new QueryCache({
-            onError: (error, query) => {
-                console.log("Error", error);
-            }
-        })
-    }));
+        if (errorResponse && typeof errorResponse === "object") {
+          const { /*detail,*/ code, /*fieldErrors,*/ status, redirect } = errorResponse;
+          if (status === 429 && code === ERROR_SLUGS[code] && redirect) {
+            router.push("/429");
+          }
+          if (status === 500 && ERROR_SLUGS[code]) {
+            // router.push("/internal-error")
+          }
+        }
+      }
+    }),
+    queryCache: new QueryCache({
+      onError: (error) => {
+        console.log("Error", error);
+      }
+    })
+  }));
 
-    return (
-        <QueryClientProvider client={client}>
-            {children}
-        </QueryClientProvider>
+  return (
+      <QueryClientProvider client={client}>
+        {children}
+      </QueryClientProvider>
 
-    );
+  );
 };
 
 export default QueryProvider;

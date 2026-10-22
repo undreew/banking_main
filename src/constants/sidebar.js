@@ -5,7 +5,7 @@ const MENU_ITEMS = [
     {
         icon: <Home/>,
         title: "Home",
-        url: "/",
+        url: "/home",
         for: [USER_ROLE.USER, USER_ROLE.ADMIN]
     },
     {
