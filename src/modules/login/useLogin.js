@@ -7,12 +7,14 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import authService from "@/services/authService";
+import { useAuth } from "@/providers/AuthProvider";
 import { useMutation } from "@tanstack/react-query";
 
 
 const useLogin = () => {
     const router = useRouter();
     const pathname = usePathname();
+    const { setSession } = useAuth();
 
     const formSchema = z.object({
         email: z
@@ -35,10 +37,15 @@ const useLogin = () => {
 
     const { mutate, isPending: isLoading, isError, error } = useMutation({
         mutationFn: authService.login,
-        onSuccess: () => {
-            router.push("/design-system");
+        onSuccess: (data) => {
+            const { accessToken } = data.successResponse.data;
+            setSession(accessToken);
+            router.push("/home");
             form.reset();
         },
+        onError: error => {
+            console.log("mutation error", error.errorReponse)
+        }
     });
 
     const onSubmit = (payload) => mutate(payload);

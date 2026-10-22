@@ -19,9 +19,9 @@ import BnkCalloutWithAction from "@/components/Callout/BnkCalloutWithAction";
 import BnkTransactionStatusBadge from "@/components/Badge/BnkTransactionStatusBadge";
 import {
     Pagination,
+    PaginationContent,
     PaginationItem,
     PaginationNext,
-    PaginationContent,
     PaginationPrevious
 } from "@/components/ui/pagination";
 
