@@ -17,7 +17,7 @@ const useGetSession = () => {
 
   const getSessionAccount = () => mutate();
 
-  return { isPending, getSessionAccount, sessionAccount: data };
+  return { getSessionAccount, sessionAccount: data, isFetchingSession: isPending };
 };
 
 export default useGetSession;

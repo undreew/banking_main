@@ -2,8 +2,8 @@
 
 import React from 'react';
 
+import withLayout from "@/components/Layout/withLayout";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { withLayout } from "@/components/Layout/withLayout";
 
 const Layout = ({ children }) => {
   return (

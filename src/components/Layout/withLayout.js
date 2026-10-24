@@ -1,19 +1,9 @@
 'use client'
 
-import React, { createContext, useContext } from 'react';
+import React from 'react';
 
 import { useAuth } from "@/providers/AuthProvider";
 import Redirect from "@/components/Layout/Redirect";
-
-const WithLayoutContext = createContext({});
-
-const WithLayoutProvider = ({ children }) => {
-  return (
-    <WithLayoutContext.Provider value={{}}>
-      {children}
-    </WithLayoutContext.Provider>
-  );
-};
 
 const withLayout = (Component) => {
   return (props) => {
@@ -43,6 +33,4 @@ const withLayout = (Component) => {
   }
 }
 
-const useLayout = () => useContext(WithLayoutContext);
-
-export { WithLayoutProvider, withLayout, useLayout };
+export default withLayout;
