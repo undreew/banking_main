@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
@@ -13,7 +13,7 @@ function AuthProvider({ children }) {
   const [accessToken, setAccessToken] = useState(null);
   const [isAuthResolved, setIsAuthResolved] = useState(false);
 
-  const { isPending, getSessionAccount, sessionAccount } = useGetSession();
+  const { isFetchingSession, getSessionAccount, sessionAccount } = useGetSession();
 
   const isAuth = useMemo(
     () => (accessToken ? !isEmpty(accessToken) : false),
@@ -26,7 +26,6 @@ function AuthProvider({ children }) {
   }, []);
 
   const setSession = (data) => {
-    console.log("setSession", data);
     Cookies.session = data;
     setAccessToken(data)
   }
@@ -37,10 +36,10 @@ function AuthProvider({ children }) {
   }
 
   useEffect(() => {
-    if (!isPending && sessionAccount) {
+    if (!isFetchingSession && sessionAccount) {
       setAccount(sessionAccount)
     }
-  }, [isPending])
+  }, [isFetchingSession])
 
   useEffect(() => {
     if (isAuth && !isEmpty(accessToken)) {
@@ -57,11 +56,13 @@ function AuthProvider({ children }) {
       clearSession,
       isAuthResolved
     }}>
-      {isPending ? <h1 className="body">Loading...</h1> : children}
+
+
+      {isFetchingSession ? <h1 className="body">Loading...</h1> : children}
     </AuthContext.Provider>
   );
 }
 
-const useAuth = () => useContext(AuthContext);
+export const useAuth = () => useContext(AuthContext);
 
-export { AuthContext, AuthProvider, useAuth };
+export default AuthProvider;

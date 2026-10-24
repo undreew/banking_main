@@ -1,16 +1,16 @@
 import React from 'react';
 
+import AuthProvider from "@/providers/AuthProvider";
 import QueryProvider from "@/providers/QueryProvider";
-import { AuthProvider } from "@/providers/AuthProvider";
-import { WithLayoutProvider } from "@/components/Layout/withLayout";
+import LogoutProvider from "@/providers/LogoutProvider";
 
 const AppProviders = ({ children }) => {
   return (
     <QueryProvider>
       <AuthProvider>
-        <WithLayoutProvider>
+        <LogoutProvider>
           {children}
-        </WithLayoutProvider>
+        </LogoutProvider>
       </AuthProvider>
     </QueryProvider>
   );
