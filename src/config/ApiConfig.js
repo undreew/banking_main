@@ -3,17 +3,17 @@ const ApiConfig = {
         // auth
         login: `/auth/login`,
         logout: `/auth/logout`,
-        currentUser: `/auth/me`,
+        logoutAll: `/auth/logout-all`,
+        session: `/auth/session`,
         refresh: `/auth/refresh`,
-        register: `/auth/register`
+        register: `/auth/register`,
 
         // users
 
         // account
 
         // transactions
-
-    }
-}
+    },
+};
 
 export default ApiConfig;

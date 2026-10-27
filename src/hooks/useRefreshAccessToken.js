@@ -1,32 +1,28 @@
-import Cookies from "@/utils/cookies";
-import authService from "@/services/authService";
-import { useMutation } from "@tanstack/react-query";
+import { useCallback } from "react";
+import { useQueryClient } from "@tanstack/react-query";
+import { refreshSession } from "@/utils/fetch";
+import { SESSION_QUERY_KEY } from "@/hooks/useSession";
 
-let inFlight = null;
-
+/**
+ * Renews the HttpOnly cookies through POST /auth/refresh (single-flight, cross-tab locked) and
+ * refreshes the cached session so the UI picks up the new expiry instants.
+ */
 const useRefreshAccessToken = () => {
-  const { mutate, isPending } = useMutation({
-    mutationFn: authService.refresh,
-    onSuccess: (data) => {
-      Cookies.session = data.successResponse.data.accessToken;
+  const queryClient = useQueryClient();
+
+  const refreshAccessToken = useCallback(async () => {
+    const refreshed = await refreshSession();
+
+    if (refreshed) {
+      await queryClient.invalidateQueries({ queryKey: SESSION_QUERY_KEY });
+    } else {
+      queryClient.setQueryData(SESSION_QUERY_KEY, null);
     }
-  });
 
-  const refreshAccessToken = () => {
-    if (inFlight) return inFlight;
+    return refreshed;
+  }, [queryClient]);
 
-    const run = typeof navigator !== "undefined" && "locks" in navigator  // Cross-tab: only one tab at a time may run doRefresh(), origin-wide.
-      ? navigator.locks.request("banking-refresh-token", mutate) : mutate();
-
-    inFlight = run.finally(() => {
-      inFlight = null;
-    });
-  }
-
-  return {
-    isPending,
-    refreshAccessToken
-  };
+  return { refreshAccessToken };
 };
 
 export default useRefreshAccessToken;
