@@ -1,8 +1,8 @@
 import React from 'react';
 
-import AuthProvider from "@/providers/AuthProvider";
 import QueryProvider from "@/providers/QueryProvider";
 import LogoutProvider from "@/providers/LogoutProvider";
+import { AuthProvider } from "@/providers/AuthProvider";
 
 const AppProviders = ({ children }) => {
   return (

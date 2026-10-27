@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
 import React from 'react';
 
 import AuthLayout from "@/modules/auth/AuthLayout";
-import withLayout from "@/components/Layout/withLayout";
+import { withLayout } from "@/components/Layout/withLayout";
 
 const Layout = ({ children }) => {
     return (

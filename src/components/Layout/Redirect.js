@@ -1,16 +1,15 @@
-'use client'
+'use client';
 
-import React, { useEffect } from 'react';
-import { useRouter } from "next/navigation";
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 const Redirect = ({ url }) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (url) router.push(url);
-  }, [url, router])
+    router.replace(url);
+  }, [url, router]);
 
-  /* TODO:{Change to full page loading spinner}*/
   return <>Redirecting...</>;
 };
 
